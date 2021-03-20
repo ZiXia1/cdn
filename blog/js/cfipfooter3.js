@@ -80,7 +80,7 @@ ajax({
         }
         ajax({
             type: "GET",
-            url: "/index/index/ip_info/ip/" + sip,
+            url: "https://ip.tool.lu/",
             success: function (msg, header) {
                 console.log(msg);
                 console.log(header);
