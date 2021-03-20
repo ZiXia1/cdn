@@ -1,51 +1,3 @@
-function ajax() {
-    var ajaxData = {
-        type: arguments[0].type || "GET",
-        url: arguments[0].url || "",
-        async: arguments[0].async || "true",
-        data: arguments[0].data || null,
-        dataType: arguments[0].dataType || "text",
-        contentType: arguments[0].contentType || "application/x-www-form-urlencoded",
-        beforeSend: arguments[0].beforeSend || function () {},
-        success: arguments[0].success || function () {},
-        error: arguments[0].error || function () {}
-    }
-    ajaxData.beforeSend()
-    var xhr = createxmlHttpRequest();
-    xhr.responseType = ajaxData.dataType;
-    xhr.open(ajaxData.type, ajaxData.url, ajaxData.async);
-    xhr.setRequestHeader("Content-Type", ajaxData.contentType);
-    xhr.send(convertData(ajaxData.data));
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-                var header = xhr.getAllResponseHeaders();
-                ajaxData.success(xhr.response, header)
-            } else {
-                ajaxData.error()
-            }
-        }
-    }
-}
-function createxmlHttpRequest() {
-    if (window.ActiveXObject) {
-        return new ActiveXObject("Microsoft.XMLHTTP");
-    } else if (window.XMLHttpRequest) {
-        return new XMLHttpRequest();
-    }
-}
-function convertData(data) {
-    if (typeof data === 'object') {
-        var convertResult = "";
-        for (var c in data) {
-            convertResult += c + "=" + data[c] + "&";
-        }
-        convertResult = convertResult.substring(0, convertResult.length - 1)
-        return convertResult;
-    } else {
-        return data;
-    }
-}
 ajax({
     type: "GET",
     url: "/cdn-cgi/trace",
@@ -72,38 +24,8 @@ ajax({
         if (tls !== 'off') {
             document.getElementById("resultcfip").innerHTML += " Encrypted access:" + tls + "[SNI:" + sni + "]";
         }
-        ajax({
-            type: "GET",
-            url: "/index/index/ip_info/ip/" + sip,
-            success: function (msg, header) {
-                console.log(msg);
-                console.log(header);
-                if (header.match(/(content-encoding: =?)(\S*)/) !== null) {
-                    var contentencoding = header.match(/(content-encoding: =?)(\S*)/)[2] + "压缩";
-                } else {
-                    var contentencoding = '';
-                }
-                if (header.match(/(cf-railgun: =?)(\S*)/) !== null) {
-                    var ra = header.match(/(cf-railgun: =?)[^\n]*/)[0];
-                    var b = ra.split(' ')[2];
-                    if (!isNaN(b)) {
-                        var c = (100 - b) + '%';
-                    } else {
-                        var c = '未压缩';
-                    }
-                    var railgun = ' Railgun压缩率:' + c;
-                } else {
-                    var railgun = '';
-                }
-                document.getElementById("result2").innerHTML = "<br>" + msg + " " +
-                    contentencoding + railgun;
-            },
-            error: function () {
-                console.log("error")
-            }
-        })
-    },
     error: function () {
         console.log("error")
     }
+  }
 })
