@@ -81,6 +81,7 @@ ajax({
         ajax({
             type: "GET",
             url: "https://ip.tool.lu/",
+            dataType: 'jsonp',
             success: function (msg, header) {
                 console.log(msg);
                 console.log(header);
