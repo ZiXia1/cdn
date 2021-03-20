@@ -80,8 +80,7 @@ ajax({
         }
         ajax({
             type: "GET",
-            url: "https://ip.tool.lu/",
-            dataType: 'jsonp',
+            url: "https://ip.ws.126.net/ipquery?ip=" + sip,
             success: function (msg, header) {
                 console.log(msg);
                 console.log(header);
