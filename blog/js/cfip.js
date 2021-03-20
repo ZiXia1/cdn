@@ -1,7 +1,3 @@
-var t1 = performance.now();
-if (typeof t1 != "undefined") {
-    document.getElementById("TimeShow").innerHTML = " 页面加载耗时" + Math.round(t1) + "毫秒 ";
-}
 function ajax() {
     var ajaxData = {
         type: arguments[0].type || "GET",
