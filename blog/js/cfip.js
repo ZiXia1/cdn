@@ -71,10 +71,10 @@ ajax({
                 break;
             }
         }
-        document.getElementById("result").innerHTML = "[CDN Node: " + str + " " + cdnloc + "]" + "  [Your Country:" +
+        document.getElementById("resultcfip").innerHTML = "[CDN Node: " + str + " " + cdnloc + "]" + "  [Your Country:" +
             loc + "] " + http;
         if (tls !== 'off') {
-            document.getElementById("result").innerHTML += " Encrypted access:" + tls + "[SNI:" + sni + "]";
+            document.getElementById("resultcfip").innerHTML += " Encrypted access:" + tls + "[SNI:" + sni + "]";
         }
         ajax({
             type: "GET",
