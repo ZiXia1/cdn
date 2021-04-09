@@ -49,6 +49,7 @@ body {
 
 /**
 头部
+width: 90px;
  */
 header {
     border: none;
@@ -77,7 +78,7 @@ header .progress {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    width: 90px;
+    width: auto;
 }
 
 @-webkit-keyframes changeImg {
