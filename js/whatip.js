@@ -137,4 +137,4 @@ ajax({
 //    error: function () {
 //        console.log("error")
 //    }
-})
+});
