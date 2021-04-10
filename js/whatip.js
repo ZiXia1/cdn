@@ -58,7 +58,7 @@ ajax({
         url: "https://api.cdnmc.cn/ip/ryip.php",
         success: function(result) {
             var ipData = "";
-            ipData += result.status + "回源节点：" + result.cdnip + "回源国家：" + result.cdnct + "你的IP：" + result.realip;
+            ipData += result.status + "[回源节点：" + result.cdnip + "]" + "[回源国家：" + result.cdnct + "]" + "[你的IP：" + result.realip + "]";
             $("#jsonTip").append(ipData);
         }
     });
