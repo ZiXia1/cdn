@@ -433,7 +433,7 @@ let cdnmc = {
             let create_time = Math.round(new Date(startTime).getTime() / 1000);
             let timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
             let currentTime = secondToDate((timestamp - create_time));
-            document.getElementById('our-time2').innerHTML = '<span>' + currentTime[0] + '</span>' + '<svg class="icon" aria-hidden="true">\n' +
+            document.getElementById('our-time2').innerHTML = 建站时间： + '<span>' + currentTime[0] + '</span>' + '<svg class="icon" aria-hidden="true">\n' +
                 '<use xlink:href="#icon-huaban"></use>' +
                 '</svg><span>' + currentTime[1] + '</span><svg class="icon" aria-hidden="true">' +
                 '<use xlink:href="#icon-tian"></use>' +
