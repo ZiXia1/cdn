@@ -134,7 +134,7 @@ ajax({
 //            }
 //        })
 //    },
-    error: function () {
-        console.log("error")
+//    error: function () {
+//        console.log("error")
     }
 })
