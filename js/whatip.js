@@ -88,3 +88,8 @@ ajax({
         if (tls !== 'off') {
             document.getElementById("resultcfip").innerHTML += " Encrypted access:" + tls + "[SNI:" + sni + "]";
         }
+    },
+    error: function () {
+        console.log("error")
+    }
+})
