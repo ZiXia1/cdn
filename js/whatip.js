@@ -78,7 +78,7 @@ ajax({
         if (tls !== 'off') {
             document.getElementById("resultcfip").innerHTML += " Encrypted access:" + tls + "[SNI:" + sni + "]";
         }
-        ajax({
+ajax({
         type: "get",
         dataType: "json",
         url: "https://api.cdnmc.cn/ip/ryip.php",
@@ -134,7 +134,7 @@ ajax({
 //            }
 //        })
 //    },
-//    error: function () {
-//        console.log("error")
-//    }
-//})
+    error: function () {
+        console.log("error")
+    }
+})
