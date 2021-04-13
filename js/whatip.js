@@ -83,7 +83,7 @@ ajax({
                 break;
             }
         }
-        document.getElementById("resultcfip").innerHTML = "[CDN Node: " + str + " " + cdnloc + "]" + "  [Your Country:" +
+        document.getElementById("resultcfip").innerHTML = "[CDN节点: " + str + " " + cdnloc + "]" + "  [CDN节点地区:" +
             loc + "] " + http;
         if (tls !== 'off') {
             document.getElementById("resultcfip").innerHTML += " Encrypted access:" + tls + "[SNI:" + sni + "]";
